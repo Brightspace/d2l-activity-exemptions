@@ -10,58 +10,58 @@ Activity exemptions
 -->
 
 <dom-module id="activity-exemptions">
-  <template>
-    <style>
-      :host {
-        display: block;
-      }
-    </style>
+	<template>
+		<style>
+			:host {
+				display: block;
+			}
+		</style>
 
-    <table is="d2l-table">
-      <thead>
-        <tr>
-          <th><d2l-checkbox></d2l-checkbox></th>
-          <th><button is="d2l-table-col-sort-button">Last Name, First Name</button></th>
-          <th><button is="d2l-table-col-sort-button" desc>Enrollment Date</button></th>
-          <th><button is="d2l-table-col-sort-button">Exempt Status</button></th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr active selected>
-          <td><d2l-checkbox></d2l-checkbox></td>
-          <td>Wong, Lawrence</td>
-          <td>August 17, 2017</td>
-          <td>Exempt</td>
-        </tr>
-        <tr>
-          <td><d2l-checkbox></d2l-checkbox></td>
-          <td>Wong, Lawrence</td>
-          <td>August 17, 2017</td>
-          <td></td>
-        </tr>
-        <tr>
-          <td><d2l-checkbox></d2l-checkbox></td>
-          <td>Wong, Lawrence</td>
-          <td>August 17, 2017</td>
-          <td>Exempt</td>
-        </tr>
-      </tbody>
-    </table>
+		<table is="d2l-table">
+			<thead>
+				<tr>
+					<th><d2l-checkbox></d2l-checkbox></th>
+					<th><button is="d2l-table-col-sort-button">Last Name, First Name</button></th>
+					<th><button is="d2l-table-col-sort-button" desc>Enrollment Date</button></th>
+					<th><button is="d2l-table-col-sort-button">Exempt Status</button></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr active selected>
+					<td><d2l-checkbox></d2l-checkbox></td>
+					<td>Wong, Lawrence</td>
+					<td>August 17, 2017</td>
+					<td>Exempt</td>
+				</tr>
+				<tr>
+					<td><d2l-checkbox></d2l-checkbox></td>
+					<td>Wong, Lawrence</td>
+					<td>August 17, 2017</td>
+					<td></td>
+				</tr>
+				<tr>
+					<td><d2l-checkbox></d2l-checkbox></td>
+					<td>Wong, Lawrence</td>
+					<td>August 17, 2017</td>
+					<td>Exempt</td>
+				</tr>
+			</tbody>
+		</table>
 
-  </template>
+	</template>
 
-  <script>
-    Polymer({
+	<script>
+		Polymer({
 
-      is: 'activity-exemptions',
+			is: 'activity-exemptions',
 
-      properties: {
-        prop1: {
-          type: String,
-          value: 'activity-exemptions',
-        },
-      },
+			properties: {
+				prop1: {
+					type: String,
+					value: 'activity-exemptions',
+				},
+			},
 
-    });
-  </script>
+		});
+	</script>
 </dom-module>
