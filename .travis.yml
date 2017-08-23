@@ -2,6 +2,10 @@ language: node_js
 sudo: true
 node_js: 8
 dist: trusty
+cache:
+    directories:
+    - node_modules
+    - bower_components
 addons:
     firefox: latest
     apt:
@@ -13,6 +17,7 @@ before_install:
     - export PATH=$PWD/node_modules/.bin:$PATH
 install:
     - npm install
+    - npm run update:all
 script:
     - npm run lint
     - xvfb-run wct
