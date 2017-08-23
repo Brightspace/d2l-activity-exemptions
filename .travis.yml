@@ -3,9 +3,9 @@ sudo: true
 node_js: 8
 dist: trusty
 cache:
-    directories:
-    - node_modules
-    - bower_components
+  directories:
+  - node_modules
+  - bower_components
 addons:
     firefox: latest
     apt:
