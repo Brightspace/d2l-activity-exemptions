@@ -1,4 +1,4 @@
-/*global beforeEach describe it flush expect fixture element MockInteractions*/
+/*global beforeEach describe it expect fixture element*/
 
 describe('activity-exemptions-username', function() {
 	beforeEach(function() {

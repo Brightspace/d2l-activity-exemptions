@@ -1,4 +1,4 @@
-/*global beforeEach describe it flush expect fixture element MockInteractions*/
+/*global beforeEach describe it flush expect fixture element*/
 
 describe('activity-exemptions-exemptstatus', function() {
 	beforeEach(function() {
@@ -31,5 +31,5 @@ describe('activity-exemptions-exemptstatus', function() {
 			done();
 		});
 	});
-	
+
 });
