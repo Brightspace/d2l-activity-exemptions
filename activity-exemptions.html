@@ -53,7 +53,7 @@ Activity exemptions
 
 		<div role="main">
 			<d2l-button role="button" aria-label="Exempt Selected Users" primary on-tap="exemptSelected">Exempt</d2l-button>
-			<d2l-button  role="button" aria-label="Unexempt Selected Users" on-tap="unexemptSelected">Unexempt</d2l-button>
+			<d2l-button role="button" aria-label="Unexempt Selected Users" on-tap="unexemptSelected">Unexempt</d2l-button>
 			<p>
 			Exemptions: [[exemptionCount]]
 			</p>
@@ -88,6 +88,9 @@ Activity exemptions
 			is: 'activity-exemptions',
 
 			properties: {
+			    activityId: {
+			        type: String
+			    },
 				rawClasslist: {
 					type: Array,
 					value: []
@@ -101,7 +104,7 @@ Activity exemptions
 				},
 				userData: {
 					type: Array,
-					computed: 'getMappedUserData(mappedUserData)'
+					computed: '_getMappedUserData(mappedUserData)'
 				},
 				testData: {
 					type: Boolean
@@ -129,7 +132,7 @@ Activity exemptions
 			},
 
 			exemptSelected: function() {
-				this.toggleExemption(true);
+				this._toggleExemption(true);
 			},
 
 			getUserExemptionCount: function() {
@@ -148,7 +151,7 @@ Activity exemptions
 				this.toMap(e.detail.response);
 			},
 
-			getMappedUserData: function(mappedUserData) {
+			_getMappedUserData: function(mappedUserData) {
 				if ( !mappedUserData || !mappedUserData.values ) {
 					return [];
 				}
@@ -183,7 +186,7 @@ Activity exemptions
 				this.$.toast.open();
 			},
 
-			toggleExemption: function(isExempt) {
+			_toggleExemption: function(isExempt) {
 				Polymer.dom(this.root)
 					.querySelectorAll('.row-user')
 					.filter( (element) => element.querySelector('.checkbox-user[checked]')
@@ -207,7 +210,7 @@ Activity exemptions
 			},
 
 			unexemptSelected: function() {
-				this.toggleExemption(false);
+				this._toggleExemption(false);
 			}
 
 		});
