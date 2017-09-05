@@ -76,5 +76,5 @@ This will run a web server on port `8080`.
 This config file gets overwritten when the LMS gets built.  Beware the full_all...
 
 
-[ci-url]: https://travis-ci.org/Brightspace/activity-exemptions
-[ci-image]: https://img.shields.io/travis/Brightspace/activity-exemptions.svg
+[ci-url]: https://travis-ci.org/Brightspace/d2l-activity-exemptions
+[ci-image]: https://img.shields.io/travis/Brightspace/d2l-activity-exemptions.svg
