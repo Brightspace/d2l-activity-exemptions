@@ -35,7 +35,7 @@ Activity exemptions
 		<iron-ajax
 		id="classlistRequest"
 		url="[[classlistUrl]]"
-		headers='{ "Authorization": "Bearer "}'
+		headers='{ "Authorization": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6IjRlOGQ3OWRlLTdiYjItNDlhNC05NzM3LTU3N2RkOWNlN2Q4YyJ9.eyJzdWIiOiIxNjkiLCJ0ZW5hbnRpZCI6ImNjN2U3MTA2LWUwNmItNGIxYy05MDk4LTk5NTA0YmM1M2E1MCIsInNjb3BlIjoiKjoqOioiLCJqdGkiOiJhYWIwNDU1OS0xMTE5LTQzMDAtODk2My1lMDY5ZjU4MDFkYmQiLCJpc3MiOiJodHRwczovL2FwaS5icmlnaHRzcGFjZS5jb20vYXV0aCIsImF1ZCI6Imh0dHBzOi8vYXBpLmJyaWdodHNwYWNlLmNvbS9hdXRoL3Rva2VuIiwiZXhwIjoxNTA0NjQ4MDQ0LCJuYmYiOjE1MDQ2NDQ0NDR9.GU2W2eV94T1oDRFo471jyTC4YF97M7_B_ZPgjyMrO9EiS4kUtd6B_PSTsy9x9xQuDqJKwHVRarkE14DWQY7OKOCB7i8Lbbf0W9zADw-g9ng8aEno8lXNBJuWD5z_LayvNAlL5LhQpctvAAEcNBh-EIZjfJFV1Ty_rt4n8UEZ9zae39WXrKsSotrAr67-MfT6z5CWrTTL0CWiywz03boWSJE6g8aOju0tIpAVcHuQLfwS7PODsBqHJvnk9v_lso9A-16zV96XaVOWK-CkyL8yRJLhHt132xB85NRssQ7XqMrg3-ha2uEfzIBbxTRnpTDKeGsaSUalfwWsGpTSzgkVrw"}'
 		handle-as="json"
 		on-response="handleClasslistResponse"
 		method="GET"
@@ -44,10 +44,19 @@ Activity exemptions
 		<iron-ajax
 		id="exemptionsRequest"
 		url="[[exemptionsUrl]]"
-		headers='{ "Authorization": "Bearer "}'
+		headers='{ "Authorization": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6IjRlOGQ3OWRlLTdiYjItNDlhNC05NzM3LTU3N2RkOWNlN2Q4YyJ9.eyJzdWIiOiIxNjkiLCJ0ZW5hbnRpZCI6ImNjN2U3MTA2LWUwNmItNGIxYy05MDk4LTk5NTA0YmM1M2E1MCIsInNjb3BlIjoiKjoqOioiLCJqdGkiOiJhYWIwNDU1OS0xMTE5LTQzMDAtODk2My1lMDY5ZjU4MDFkYmQiLCJpc3MiOiJodHRwczovL2FwaS5icmlnaHRzcGFjZS5jb20vYXV0aCIsImF1ZCI6Imh0dHBzOi8vYXBpLmJyaWdodHNwYWNlLmNvbS9hdXRoL3Rva2VuIiwiZXhwIjoxNTA0NjQ4MDQ0LCJuYmYiOjE1MDQ2NDQ0NDR9.GU2W2eV94T1oDRFo471jyTC4YF97M7_B_ZPgjyMrO9EiS4kUtd6B_PSTsy9x9xQuDqJKwHVRarkE14DWQY7OKOCB7i8Lbbf0W9zADw-g9ng8aEno8lXNBJuWD5z_LayvNAlL5LhQpctvAAEcNBh-EIZjfJFV1Ty_rt4n8UEZ9zae39WXrKsSotrAr67-MfT6z5CWrTTL0CWiywz03boWSJE6g8aOju0tIpAVcHuQLfwS7PODsBqHJvnk9v_lso9A-16zV96XaVOWK-CkyL8yRJLhHt132xB85NRssQ7XqMrg3-ha2uEfzIBbxTRnpTDKeGsaSUalfwWsGpTSzgkVrw"}'
 		handle-as="json"
 		on-response="handleExemptionsResponse"
 		method="GET"
+		></iron-ajax>
+
+		<iron-ajax
+		id="createExemption"
+		url="[[createExemptionUrl]]"
+		headers='{ "Authorization": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6IjRlOGQ3OWRlLTdiYjItNDlhNC05NzM3LTU3N2RkOWNlN2Q4YyJ9.eyJzdWIiOiIxNjkiLCJ0ZW5hbnRpZCI6ImNjN2U3MTA2LWUwNmItNGIxYy05MDk4LTk5NTA0YmM1M2E1MCIsInNjb3BlIjoiKjoqOioiLCJqdGkiOiJhYWIwNDU1OS0xMTE5LTQzMDAtODk2My1lMDY5ZjU4MDFkYmQiLCJpc3MiOiJodHRwczovL2FwaS5icmlnaHRzcGFjZS5jb20vYXV0aCIsImF1ZCI6Imh0dHBzOi8vYXBpLmJyaWdodHNwYWNlLmNvbS9hdXRoL3Rva2VuIiwiZXhwIjoxNTA0NjQ4MDQ0LCJuYmYiOjE1MDQ2NDQ0NDR9.GU2W2eV94T1oDRFo471jyTC4YF97M7_B_ZPgjyMrO9EiS4kUtd6B_PSTsy9x9xQuDqJKwHVRarkE14DWQY7OKOCB7i8Lbbf0W9zADw-g9ng8aEno8lXNBJuWD5z_LayvNAlL5LhQpctvAAEcNBh-EIZjfJFV1Ty_rt4n8UEZ9zae39WXrKsSotrAr67-MfT6z5CWrTTL0CWiywz03boWSJE6g8aOju0tIpAVcHuQLfwS7PODsBqHJvnk9v_lso9A-16zV96XaVOWK-CkyL8yRJLhHt132xB85NRssQ7XqMrg3-ha2uEfzIBbxTRnpTDKeGsaSUalfwWsGpTSzgkVrw"}'
+		handle-as="json"
+		on-response="handleIt"
+		method="POST"
 		></iron-ajax>
 
 		<iron-ajax
@@ -100,6 +109,12 @@ Activity exemptions
 				classlistUrl: {
 					type: String,
 					computed: '_getClasslistUrl(hostUrl, orgUnitId)'
+				},
+				createExemptionUrl: {
+					type: String
+				},
+				deleteExemptionUrl: {
+					type: String
 				},
 				exemptionsUrl: {
 					type: String,
@@ -172,12 +187,16 @@ Activity exemptions
 				this.toMap(e.detail.response);
 			},
 
+			handleIt: function(e) {
+				console.log(e)
+			},
+
 			_getClasslistUrl: function(hostUrl, orgUnitId) {
 				return `https://${hostUrl}/d2l/api/le/1.12/${orgUnitId}/classlist/`;
 			},
 
 			_getExemptionsUrl: function(hostUrl, orgUnitId, activityId) {
-				return `https://${hostUrl}/d2l/api/le/1.26/${orgUnitId}/activities/exemptions/??userId=&activityId=${activityId}&showHistory=false`;
+				return `https://${hostUrl}/d2l/api/le/1.26/${orgUnitId}/activities/exemptions/?userId=&activityId=${activityId}&showHistory=false`;
 			},
 
 			_getMappedUserData: function(mappedUserData) {
@@ -227,6 +246,8 @@ Activity exemptions
 						&& element.data['IsExempt'] !== isExempt );
 				filteredSelection.forEach( (element) => {
 					const user = this.mappedUserData.get(element.data.Identifier);
+					this.createExemptionUrl =  `https://${this.hostUrl}/d2l/api/le/1.26/${this.orgUnitId}/activities/exemptions?userId=${user.Identifier}&activityId=${this.activityId}`;
+					this.$.createExemption.generateRequest();
 					user.IsExempt = isExempt;
 				});
 				// Deep copy of the mappedUserData to notify polymer that value has been changed
