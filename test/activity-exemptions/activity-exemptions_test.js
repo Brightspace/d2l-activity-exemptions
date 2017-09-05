@@ -196,11 +196,11 @@ describe('activity-exemptions', function() {
 			flush(function() {
 				var checkbox = Polymer.dom(element.root).querySelector('d2l-checkbox').$$('input');
 				var items = Polymer.dom(element.root).querySelectorAll('.row-user');
-				var exemptButton = Polymer.dom(element.root).querySelectorAll('d2l-button')[1];
+				var unexemptButton = Polymer.dom(element.root).querySelectorAll('d2l-button')[1];
 
 				MockInteractions.tap(checkbox);
 				flush(function() {
-					exemptButton.addEventListener('click', function() {
+					unexemptButton.addEventListener('click', function() {
 						flush(function() {
 							expect(items.length).to.equal(4);
 							items.forEach(function(row) {
@@ -209,7 +209,7 @@ describe('activity-exemptions', function() {
 							done();
 						});
 					});
-					MockInteractions.tap(exemptButton);
+					MockInteractions.tap(unexemptButton);
 				});
 			});
 		});
