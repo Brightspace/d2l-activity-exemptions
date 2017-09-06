@@ -58,8 +58,8 @@ Activity exemptions
 		></iron-ajax>
 
 		<div role="main">
-			<d2l-button role="button" aria-label="[[localize('ariaExempt')]]" primary on-tap="exemptSelected">[[localize('btnExempt')]]</d2l-button>
-			<d2l-button role="button" aria-label="[[localize('ariaUnexempt')]]" on-tap="unexemptSelected">[[localize('btnUnexempt')]]</d2l-button>
+			<d2l-button role="button" aria-label$="[[localize('ariaExempt')]]" primary on-tap="exemptSelected">[[localize('btnExempt')]]</d2l-button>
+			<d2l-button role="button" aria-label$="[[localize('ariaUnexempt')]]" on-tap="unexemptSelected">[[localize('btnUnexempt')]]</d2l-button>
 			<div id="exemptions-count"><p>
 			[[exemptionCount]]
 			</p></div>
@@ -67,7 +67,7 @@ Activity exemptions
 				<caption><d2l-offscreen>[[localize('ariaTableCaption')]]</d2l-offscreen></caption>
 				<thead>
 					<tr role="row">
-						<th><d2l-checkbox aria-label="[[localize('selectUnselectAll')]]" on-change="selectAll"></d2l-checkbox></th>
+						<th><d2l-checkbox aria-label$="[[localize('selectUnselectAll')]]" on-change="selectAll"></d2l-checkbox></th>
 						<th scope="col" role="columnheader" aria-sort="none"><button is="d2l-table-col-sort-button" role="button" nosort>[[localize('lblLastNameFirstName')]]</button></th>
 						<th scope="col" role="columnheader"><button is="d2l-table-col-sort-button" role="button" nosort>[[localize('lblExemptStatus')]]</button></th>
 					</tr>
@@ -75,15 +75,15 @@ Activity exemptions
 				<tbody>
 					<template is="dom-repeat" items="[[userData]]">
 						<tr class="row-user" role="row" data="[[item]]">
-							<td><d2l-checkbox class="checkbox-user" aria-label="[[localize('ariaSelectUser', 'lastName', item.LastName, 'firstName', item.FirstName)]]"></d2l-checkbox></td>
+							<td><d2l-checkbox class="checkbox-user" aria-label$="[[localize('ariaSelectUser', 'lastName', item.LastName, 'firstName', item.FirstName)]]"></d2l-checkbox></td>
 							<th scope="row" role="rowheader"><activity-exemptions-username last-name="[[item.LastName]]" first-name="[[item.FirstName]]"></activity-exemptions-username></th>
 							<th scope="row" role="rowheader"><activity-exemptions-exemptstatus data="[[item]]"></activity-exemptions-exemptstatus></th>
 						</tr>
 					</template>
 				</tbody>
 			</table>
-			<d2l-button role="button" aria-label="[[localize('ariaExempt')]]" primary on-tap="exemptSelected">[[localize('btnExempt')]]</d2l-button>
-			<d2l-button role="button" aria-label="[[localize('ariaUnexempt')]]" on-tap="unexemptSelected">[[localize('btnUnexempt')]]</d2l-button>
+			<d2l-button role="button" aria-label$="[[localize('ariaExempt')]]" primary on-tap="exemptSelected">[[localize('btnExempt')]]</d2l-button>
+			<d2l-button role="button" aria-label$="[[localize('ariaUnexempt')]]" on-tap="unexemptSelected">[[localize('btnUnexempt')]]</d2l-button>
 			<paper-toast id="toast"></paper-toast>
 		</template>
 
