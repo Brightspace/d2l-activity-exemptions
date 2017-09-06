@@ -144,8 +144,10 @@ Activity exemptions
 			},
 
 			getUserExemptionCount: function() {
-				const exemptionCount = this.userData.filter( u => u.IsExempt ).length;
-				return this.localize('lblExemptionCount', 'exemptionCount', exemptionCount);
+				const count = this.userData.filter( u => u.IsExempt ).length;
+
+				// count.toString() is required due to localize returning '' when count is 0
+				return this.localize( 'lblExemptionCount', 'exemptionCount', count.toString() );
 			},
 
 			handleClasslistResponse: function(e) {
