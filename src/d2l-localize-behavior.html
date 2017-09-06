@@ -17,10 +17,9 @@
 			locale: {
 				type: String,
 				value: function() {
-					let lr = document.documentElement.lang
+					return document.documentElement.lang
 						|| document.documentElement.getAttribute('data-lang-default')
 						|| 'en-us';
-					return lr;
 				}
 			},
 			localize: {
