@@ -190,7 +190,8 @@ Activity exemptions
 			},
 
 			handleTestDataResponse: function(e) {
-				this.toMap(e.detail.response);
+				console.log(this.rawClasslist);
+				this.set('userData', e.detail.response);
 			},
 
 			_getClasslistUrl: function(hostUrl, orgUnitId) {
