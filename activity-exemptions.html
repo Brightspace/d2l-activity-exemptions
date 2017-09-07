@@ -159,15 +159,7 @@ Activity exemptions
 						this.$.classlistRequest.generateRequest().completes,
 						this.$.exemptionsRequest.generateRequest().completes ])
 						.then( () => {
-							this.set('userData', this.rawClasslist.map(
-								(user)=>{
-									const isExempt = this.rawExemptions.some( (exemptions) => {
-										return exemptions['UserId'] === Number(user.Identifier);
-									});
-									user.IsExempt = isExempt;
-									return user;
-								}
-							));
+							this._mapUserData();
 						})
 						.catch( () => {
 							this.$.toast.text = this.localize('lblCouldNotLoad');
@@ -212,7 +204,17 @@ Activity exemptions
 					'Authorization': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6ImRmYjEwNzk0LTg0NjYtNGQ5NC05MWI4LTRlMDhhNzg3NDg0NCJ9.eyJzdWIiOiIxNjkiLCJ0ZW5hbnRpZCI6ImE0MGEzYzUwLTZmMmMtNDU1Ny04MWRmLWNiMGNkM2UxMzQ3NCIsInNjb3BlIjoiKjoqOioiLCJqdGkiOiJjMTE3ODBjYy0zMjJkLTQ0ZTUtYjg2Yy00MDYxNjM1ODhiOGIiLCJpc3MiOiJodHRwczovL2FwaS5icmlnaHRzcGFjZS5jb20vYXV0aCIsImF1ZCI6Imh0dHBzOi8vYXBpLmJyaWdodHNwYWNlLmNvbS9hdXRoL3Rva2VuIiwiZXhwIjoxNTA0ODExODUxLCJuYmYiOjE1MDQ4MDgyNTF9.Es43j5VaRhu_VvFNB98ZcqYCr7E0_3ptJBFMFOD0olFILThwqjNR45OdRAl0MTPr1om_wC5KttGn0xyI9KQtZxStdJcGbx5EXTbOHzgrIAigWa6evsj8ucVu5i5Hovns2Mm7yWaAJM1c3Nl_RJG_bAD9cu-aJkq8WqpupA_Inxdp3-MkDZhgBrG3g4dBA7PK6iinAtKyPmNwg11p9fjWuLEB7PBVs13c5LFZbSw1dvoDZlk9co8pOJyapftywJYH3x8RqK5P6LyAA0D84iZdCv39vlWepGeGmouxoYz4kfRIlfkml_cgwecARGJ2knL0qG2A8l7tFi9kETZekn6clA'
 				};
 			},
-
+			_mapUserData: function(){
+				this.set('userData', this.rawClasslist.map(
+					(user)=>{
+						const isExempt = this.rawExemptions.some( (exemptions) => {
+							return exemptions['UserId'] === Number(user.Identifier);
+						});
+						user.IsExempt = isExempt;
+						return user;
+					}
+				));
+			},
 			selectAll: function(e) {
 				const checkboxes = Polymer.dom(this.root).querySelectorAll('.checkbox-user');
 				if ( e.target.checked ) {
