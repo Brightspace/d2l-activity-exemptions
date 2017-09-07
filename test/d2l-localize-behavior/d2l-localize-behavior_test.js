@@ -30,8 +30,8 @@ describe('d2l-localize-behavior', function() {
 		it(`should fall back to base language when lang is: '${lang}'`, function() {
 			document.documentElement.lang = 'EN';
 			expect(elem.innerText).to.eql('Select / Unselect All');
-		})
-	})
+		});
+	});
 
 	it('should fall back to org default language', function() {
 		document.documentElement.lang = '';
