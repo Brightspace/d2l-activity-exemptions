@@ -1,9 +1,11 @@
 /*global describe beforeEach it expect fixture*/
 describe('d2l-localize-behavior', function() {
+	let elem;
 
 	beforeEach(function() {
 		document.documentElement.lang = '';
 		document.documentElement.removeAttribute('data-lang-default');
+		elem = fixture('localize-test');
 	});
 
 	[
@@ -15,34 +17,25 @@ describe('d2l-localize-behavior', function() {
 	].forEach(function(val) {
 		it('should render in ' + val.label, function() {
 			document.documentElement.lang = val.code;
-			var elem = fixture('localize-test');
 			expect(elem.innerText).to.eql(val.expected);
 		});
 	});
 
-	it('should handle uppercase language', function() {
-		document.documentElement.lang = 'EN';
-		var elem = fixture('localize-test');
-		expect(elem.innerText).to.eql('Select / Unselect All');
-	});
-
-	it('should fall back to base language for unknown regional locale', function() {
-		document.documentElement.lang = 'EN-XX';
-		var elem = fixture('localize-test');
-		expect(elem.innerText).to.eql('Select / Unselect All');
-	});
+	[
+		'EN',
+		'EN-XX',
+		'',
+		'XX'
+	].forEach( lang => {
+		it(`should fall back to base language when lang is: '${lang}'`, function() {
+			document.documentElement.lang = 'EN';
+			expect(elem.innerText).to.eql('Select / Unselect All');
+		})
+	})
 
 	it('should fall back to org default language', function() {
 		document.documentElement.lang = '';
 		document.documentElement.setAttribute('data-lang-default', 'en');
-		var elem = fixture('localize-test');
 		expect(elem.innerText).to.eql('Select / Unselect All');
 	});
-
-	it('should fall back English for unknown language', function() {
-		document.documentElement.lang = 'XX';
-		var elem = fixture('localize-test');
-		expect(elem.innerText).to.eql('Select / Unselect All');
-	});
-
 });
