@@ -193,10 +193,10 @@ Activity exemptions
 			},
 
 			_getExemptionsUrl: function(hostUrl, orgUnitId, activityId) {
-				return `${hostUrl}/d2l/api/le/1.26/${orgUnitId}/activities/exemptions/?userId=&activityId=${activityId}&showHistory=false`;
+				return `${hostUrl}/d2l/api/le/1.26/${orgUnitId}/activities/exemptions/?activityId=${activityId}`;
 			},
 
-			_mapUserData: function(){
+			_mapUserData: function() {
 				this.set('userData', this.rawClasslist.map(
 					(user)=>{
 						const isExempt = this.rawExemptions.some( (exemptions) => {
