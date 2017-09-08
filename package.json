@@ -20,7 +20,6 @@
     "eslint-plugin-sinon": "^0.2.0",
     "polymer-cli": "^1.4.1",
     "rimraf": "^2.6.1",
-    "sinon": "^3.2.1",
     "web-component-tester": "^6.0.1"
   },
   "scripts": {
@@ -31,6 +30,6 @@
     "lint": "npm run lint:js && npm run lint:wc",
     "lint:wc": "polymer lint",
     "lint:js": "eslint *.html src/*.html test/**",
-    "clean:all": "rimraf bower_components"
+    "clean:all": "rimraf bower_components && rimraf node_modules"
   }
 }
