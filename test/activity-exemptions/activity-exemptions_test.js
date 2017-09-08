@@ -1,4 +1,4 @@
-/*global beforeEach afterEach describe it flush expect fixture element MockInteractions*/
+/*global beforeEach afterEach describe it flush expect fixture element MockInteractions sinon*/
 
 describe('activity-exemptions', function() {
 	beforeEach(function() {
@@ -225,7 +225,7 @@ describe('activity-exemptions', function() {
 					unexemptButton.addEventListener('click', function() {
 						flush(function() {
 							expect(items.length).to.equal(4);
-							items.forEach(function(row) {
+							items.forEach(function() {
 								expect(responseHandler.callCount).to.be.equal(2);
 							}, this);
 							done();
