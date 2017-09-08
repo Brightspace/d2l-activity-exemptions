@@ -189,7 +189,7 @@ describe('activity-exemptions', function() {
 				var checkbox = Polymer.dom(element.root).querySelector('d2l-checkbox').$$('input');
 				var items = Polymer.dom(element.root).querySelectorAll('.row-user');
 				var exemptButton = Polymer.dom(element.root).querySelectorAll('d2l-button')[0];
-				var exemptAjax = Polymer.dom(element.root).querySelector('#createExemption');
+				var exemptAjax = Polymer.dom(element.root).querySelector('#toggleExemptionRequest');
 				exemptAjax.url = '/exemptmythings';
 				var responseHandler = sinon.spy();
 				exemptAjax.addEventListener('request', responseHandler);
