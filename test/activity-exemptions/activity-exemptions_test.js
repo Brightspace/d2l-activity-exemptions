@@ -157,21 +157,17 @@ describe('activity-exemptions', function() {
 	});
 
 	describe('activity-exemptions (un)exempt buttons', function() {
-		var server;
+		var fetchStub;
 		beforeEach(function() {
-			var responseHeaders = {
-				json: { 'Content-Type': 'application/json' }
-			};
-
-			server = sinon.fakeServer.create();
-			server.respondWith(
-				'POST',
-				/\/exemptmythings/, [
-					200,
-					responseHeaders.json,
-					'{"success":true}'
-				]
-			);
+			fetchStub = sinon.stub( window, 'fetch' );
+			const mockResponse = new window.Response(
+				'{"success":true}', {
+					status: 200,
+					headers: {
+						'Content-type': 'application/json'
+					}
+				});
+			fetchStub.returns(Promise.resolve(mockResponse));
 
 			element.userData = [
 				{'Identifier': 1, 'FirstName':'Benjamin', 'LastName':'Liam', 'IsExempt':true},
@@ -181,7 +177,7 @@ describe('activity-exemptions', function() {
 			];
 		});
 		afterEach(function() {
-			server.restore();
+			fetchStub.restore();
 		});
 
 		it('should mark users exempt if they are not already exempted', function(done) {
@@ -190,10 +186,7 @@ describe('activity-exemptions', function() {
 				var checkbox = Polymer.dom(element.root).querySelector('d2l-checkbox').$$('input');
 				var items = Polymer.dom(element.root).querySelectorAll('.row-user');
 				var exemptButton = Polymer.dom(element.root).querySelectorAll('d2l-button')[0];
-				var exemptAjax = Polymer.dom(element.root).querySelector('#toggleExemptionRequest');
-				exemptAjax.url = '/exemptmythings';
-				var responseHandler = sinon.spy();
-				exemptAjax.addEventListener('request', responseHandler);
+				element.exemptionsUrl = '/exemptmythings';
 
 				MockInteractions.tap(checkbox);
 				flush(function() {
@@ -201,7 +194,7 @@ describe('activity-exemptions', function() {
 						flush(function() {
 							expect(items.length).to.equal(4);
 							items.forEach(function() {
-								expect(responseHandler.callCount).to.be.equal(2);
+								expect(fetchStub.callCount).to.be.equal(2);
 							}, this);
 							done();
 						});
@@ -216,10 +209,7 @@ describe('activity-exemptions', function() {
 				var checkbox = Polymer.dom(element.root).querySelector('d2l-checkbox').$$('input');
 				var items = Polymer.dom(element.root).querySelectorAll('.row-user');
 				var unexemptButton = Polymer.dom(element.root).querySelectorAll('d2l-button')[1];
-				var exemptAjax = Polymer.dom(element.root).querySelector('#toggleExemptionRequest');
-				exemptAjax.url = '/exemptmythings';
-				var responseHandler = sinon.spy();
-				exemptAjax.addEventListener('request', responseHandler);
+				element.exemptionsUrl = '/unexemptmythings';
 
 				MockInteractions.tap(checkbox);
 				flush(function() {
@@ -227,7 +217,7 @@ describe('activity-exemptions', function() {
 						flush(function() {
 							expect(items.length).to.equal(4);
 							items.forEach(function() {
-								expect(responseHandler.callCount).to.be.equal(2);
+								expect(fetchStub.callCount).to.be.equal(2);
 							}, this);
 							done();
 						});
