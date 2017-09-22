@@ -184,7 +184,8 @@ describe('activity-exemptions', function() {
 			flush(function() {
 				var checkbox = Polymer.dom(element.root).querySelector('d2l-checkbox').$$('input');
 				var items = Polymer.dom(element.root).querySelectorAll('.row-user');
-
+				var exemptButton = Polymer.dom(element.root).querySelectorAll('.toggle-exemption-buttons')[0];
+				element.exemptionsUpdateUrl = '/exemptmythings';
 
 				MockInteractions.tap(checkbox);
 				flush(function() {
