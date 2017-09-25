@@ -76,6 +76,8 @@
 				.then( function(d) {
 					self.__loadPagedData(d);
 					self.__mapUserData();
+					self.__createUserRows();
+
 				});
 		},
 		__createUserRows: function() {
