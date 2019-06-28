@@ -11,10 +11,6 @@
       "bower.json",
       "test.json"
     ],
-    "extraDependencies": [
-      "bower_components/polymer/**/*",
-      "bower_components/webcomponentsjs/webcomponents-lite.js"
-    ],
     "lint": {
         "rules": ["polymer-3"]
     }

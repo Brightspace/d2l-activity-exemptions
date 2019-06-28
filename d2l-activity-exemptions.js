@@ -1,16 +1,4 @@
-/**
-`d2l-activity-exemptions`
-Activity exemptions
-
-@demo demo/index.html
-*/
-/*
-  FIXME(polymer-modulizer): the above comments were extracted
-  from HTML and may be out of place here. Review them and
-  then delete this comment!
-*/
 import '@polymer/polymer/polymer-legacy.js';
-
 import '@polymer/paper-toast/paper-toast.js';
 import 'd2l-table/d2l-table.js';
 import 'd2l-button/d2l-button.js';
@@ -19,18 +7,19 @@ import 'd2l-simple-overlay/d2l-simple-overlay.js';
 import 'd2l-offscreen/d2l-offscreen.js';
 import 'd2l-inputs/d2l-input-checkbox.js';
 import 'd2l-inputs/d2l-input-checkbox-spacer.js';
-import './src/d2l-localize-behavior.js';
-import './src/d2l-load-more.js';
+import './mixins/d2l-localize-behavior.js';
+import './mixins/d2l-load-more.js';
 import { html } from '@polymer/polymer/lib/utils/html-tag.js';
-import { dom } from '@polymer/polymer/lib/legacy/polymer.dom.js';
 import { mixinBehaviors } from '@polymer/polymer/lib/legacy/class.js';
 import { PolymerElement } from '@polymer/polymer/polymer-element.js';
 /*
-	@extends D2L.PolymerBehaviors.ActivityExemptions.LocalizeBehavior
+* @polymer
+* @customElement
+* @extends PolymerElement
+* @appliesMixin D2L.Polymer.Mixins.D2LActivityExemptions.LocalizeBehavior
 */
 class D2LActivityExemptions extends mixinBehaviors([
-	D2L.PolymerBehaviors.ActivityExemptions.LocalizeBehavior,
-	D2L.PolymerBehaviors.ActivityExemptions.LoadMoreExemptionsBehavior
+	D2L.Polymer.Mixins.D2LActivityExemptions.LocalizeBehavior
 ], PolymerElement) {
   static get template() {
 	return html`
@@ -64,9 +53,9 @@ class D2LActivityExemptions extends mixinBehaviors([
 
 			<d2l-table id="classlist" role="grid" summary="[[localize('ariaTableSummary')]]" sticky-headers="">
 
-				
+
 					<d2l-offscreen>[[localize('ariaTableCaption')]]</d2l-offscreen>
-				
+
 
 				<d2l-thead>
 					<d2l-tr role="row">
