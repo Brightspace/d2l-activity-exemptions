@@ -1,17 +1,17 @@
-import "@polymer/polymer/polymer-legacy.js";
-import "@polymer/paper-toast/paper-toast.js";
-import "d2l-table/d2l-table.js";
-import "d2l-button/d2l-button.js";
-import "d2l-offscreen/d2l-offscreen.js";
-import "d2l-simple-overlay/d2l-simple-overlay.js";
-import "d2l-offscreen/d2l-offscreen.js";
-import "d2l-inputs/d2l-input-checkbox.js";
-import "d2l-inputs/d2l-input-checkbox-spacer.js";
-import "./localize-behavior.js";
-import "./mixins/d2l-load-more.js";
-import { html } from "@polymer/polymer/lib/utils/html-tag.js";
-import { mixinBehaviors } from "@polymer/polymer/lib/legacy/class.js";
-import { PolymerElement } from "@polymer/polymer/polymer-element.js";
+import '@polymer/polymer/polymer-legacy.js';
+import '@polymer/paper-toast/paper-toast.js';
+import 'd2l-table/d2l-table.js';
+import 'd2l-button/d2l-button.js';
+import 'd2l-offscreen/d2l-offscreen.js';
+import 'd2l-simple-overlay/d2l-simple-overlay.js';
+import 'd2l-offscreen/d2l-offscreen.js';
+import 'd2l-inputs/d2l-input-checkbox.js';
+import 'd2l-inputs/d2l-input-checkbox-spacer.js';
+import './localize-behavior.js';
+import './mixins/d2l-load-more.js';
+import { html } from '@polymer/polymer/lib/utils/html-tag.js';
+import { mixinBehaviors } from '@polymer/polymer/lib/legacy/class.js';
+import { PolymerElement } from '@polymer/polymer/polymer-element.js';
 /*
  * @polymer
  * @customElement
@@ -169,15 +169,14 @@ class D2LActivityExemptions extends mixinBehaviors(
     `;
 	}
 
-
 	static get is() {
-		return "d2l-activity-exemptions";
+		return 'd2l-activity-exemptions';
 	}
 	static get properties() {
 		return {
 			exemptionCount: {
 				type: String,
-				computed: "getUserExemptionCount(userData.*)"
+				computed: 'getUserExemptionCount(userData.*)'
 			},
 			exemptionsUpdateUrl: {
 				type: String
@@ -194,45 +193,45 @@ class D2LActivityExemptions extends mixinBehaviors(
 
 		// count.toString() is required due to localize returning '' when count is 0
 		return this.localize(
-			"lblExemptionCount",
-			"exemptionCount",
+			'lblExemptionCount',
+			'exemptionCount',
 			count.toString()
 		);
 	}
 
 	selectAll(e) {
 		this.root
-			.querySelectorAll(".checkbox-user")
+			.querySelectorAll('.checkbox-user')
 			.forEach(element => {
 				element.checked = e.target.checked;
 			});
 	}
 
 	showSaveToast(isExempt, numChanged) {
-		var actionText = isExempt ? "lblExemptSuccess" : "lblUnexemptSuccess";
+		var actionText = isExempt ? 'lblExemptSuccess' : 'lblUnexemptSuccess';
 
 		this.$.toast.hide();
-		this.$.toast.text = this.localize(actionText, "itemCount", numChanged);
+		this.$.toast.text = this.localize(actionText, 'itemCount', numChanged);
 		this.$.toast.show();
 	}
 
 	_toggleExemption(isExempt) {
-		var userList = Array.from(this.$.classlist.querySelectorAll(".row-user"));
+		var userList = Array.from(this.$.classlist.querySelectorAll('.row-user'));
 		var filteredSelection = userList.filter(
 			element =>
-				element.querySelector(".checkbox-user[checked]") &&
-				element.data["IsExempt"] !== isExempt
+				element.querySelector('.checkbox-user[checked]') &&
+				element.data['IsExempt'] !== isExempt
 		);
 		var token = D2L.LP.Web.Authentication.Xsrf.GetXsrfToken();
 		const options = {
-			credentials: "include",
+			credentials: 'include',
 			headers: new Headers({
-				"Access-Control-Allow-Origin": "*",
-				"Content-Type": "application/json",
-				"X-Csrf-Token": token
+				'Access-Control-Allow-Origin': '*',
+				'Content-Type': 'application/json',
+				'X-Csrf-Token': token
 			}),
-			method: isExempt ? "POST" : "DELETE",
-			mode: "cors"
+			method: isExempt ? 'POST' : 'DELETE',
+			mode: 'cors'
 		};
 
 		var allPromises = filteredSelection.map(element => {

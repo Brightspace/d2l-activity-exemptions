@@ -49,7 +49,7 @@ describe('d2l-activity-exemptions', function() {
 				flush(function() {
 					items.forEach(function(row) {
 						expect(row.querySelector('d2l-input-checkbox').checked).to.equal(true);
-					}, this);
+					});
 					done();
 				});
 			});
@@ -77,7 +77,7 @@ describe('d2l-activity-exemptions', function() {
 				var items = element.root.querySelectorAll('.row-user');
 				items.forEach(function(element) {
 					expect(element.querySelector('d2l-input-checkbox').checked).to.equal(true);
-				}, this);
+				});
 			});
 
 			// Click the '(de)select all' checkbox, and verify that all rows are unselected
@@ -89,7 +89,7 @@ describe('d2l-activity-exemptions', function() {
 					flush(function() {
 						items.forEach(function(element) {
 							expect(element.querySelector('d2l-input-checkbox').checked).to.equal(false);
-						}, this);
+						});
 						done();
 					});
 				});
@@ -216,7 +216,7 @@ describe('d2l-activity-exemptions', function() {
 							expect(items.length).to.equal(4);
 							items.forEach(function() {
 								expect(fetchStub.callCount).to.be.equal(2);
-							}, this);
+							});
 							done();
 						});
 					});
@@ -239,7 +239,7 @@ describe('d2l-activity-exemptions', function() {
 							expect(items.length).to.equal(4);
 							items.forEach(function() {
 								expect(fetchStub.callCount).to.be.equal(2);
-							}, this);
+							});
 							done();
 						});
 					});
