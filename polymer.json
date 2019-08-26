@@ -1,9 +1,9 @@
 {
   "npm": true,
     "entrypoint": "index.html",
-    "shell": "d2l-activity-exemptions.html",
+    "shell": "d2l-activity-exemptions.js",
     "fragments": [
-      "d2l-activity-exemptions.html"
+      "d2l-activity-exemptions.js"
     ],
     "sources": [
       "src/**/*",

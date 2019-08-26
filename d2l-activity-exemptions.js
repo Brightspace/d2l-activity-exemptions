@@ -17,6 +17,7 @@ import { PolymerElement } from "@polymer/polymer/polymer-element.js";
  * @customElement
  * @extends PolymerElement
  * @appliesMixin D2L.PolymerBehaviors.D2LActivityExemptions.LocalizeBehavior
+ * @appliesMixin D2L.Polymer.Mixins.D2LActivityExemptions.LoadMoreExemptionsBehavior
  */
 class D2LActivityExemptions extends mixinBehaviors(
 	[
