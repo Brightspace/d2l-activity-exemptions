@@ -7,7 +7,7 @@ import 'd2l-simple-overlay/d2l-simple-overlay.js';
 import 'd2l-offscreen/d2l-offscreen.js';
 import 'd2l-inputs/d2l-input-checkbox.js';
 import 'd2l-inputs/d2l-input-checkbox-spacer.js';
-import './mixins/d2l-localize-behavior.js';
+import './localize-behavior.js';
 import './mixins/d2l-load-more.js';
 import { html } from '@polymer/polymer/lib/utils/html-tag.js';
 import { mixinBehaviors } from '@polymer/polymer/lib/legacy/class.js';
@@ -16,10 +16,10 @@ import { PolymerElement } from '@polymer/polymer/polymer-element.js';
 * @polymer
 * @customElement
 * @extends PolymerElement
-* @appliesMixin D2L.Polymer.Mixins.D2LActivityExemptions.LocalizeBehavior
+* @appliesMixin D2L.PolymerBehaviors.D2LActivityExemptions.LocalizeBehavior
 */
 class D2LActivityExemptions extends mixinBehaviors([
-	D2L.Polymer.Mixins.D2LActivityExemptions.LocalizeBehavior
+	D2L.PolymerBehaviors.D2LActivityExemptions.LocalizeBehavior
 ], PolymerElement) {
   static get template() {
 	return html`
@@ -52,11 +52,7 @@ class D2LActivityExemptions extends mixinBehaviors([
 			</div>
 
 			<d2l-table id="classlist" role="grid" summary="[[localize('ariaTableSummary')]]" sticky-headers="">
-
-
 					<d2l-offscreen>[[localize('ariaTableCaption')]]</d2l-offscreen>
-
-
 				<d2l-thead>
 					<d2l-tr role="row">
 						<d2l-th>
@@ -65,7 +61,10 @@ class D2LActivityExemptions extends mixinBehaviors([
 						</d2l-th>
 
 						<d2l-th scope="col" role="columnheader" aria-sort="none">
-							[[localize('lblFirstNameLastName')]]
+							[[localize('lblFirstName')]]
+						</d2l-th>
+						<d2l-th scope="col" role="columnheader" aria-sort="none">
+							[[localize('lblLastName')]]
 						</d2l-th>
 
 						<d2l-th scope="col" role="columnheader" aria-sort="none">
