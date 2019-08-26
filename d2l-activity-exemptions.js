@@ -8,7 +8,7 @@ import "d2l-offscreen/d2l-offscreen.js";
 import "d2l-inputs/d2l-input-checkbox.js";
 import "d2l-inputs/d2l-input-checkbox-spacer.js";
 import "./localize-behavior.js";
-import "./mixins/d2l-load-more.js/index.js";
+import "./mixins/d2l-load-more.js";
 import { html } from "@polymer/polymer/lib/utils/html-tag.js";
 import { mixinBehaviors } from "@polymer/polymer/lib/legacy/class.js";
 import { PolymerElement } from "@polymer/polymer/polymer-element.js";
@@ -17,7 +17,6 @@ import { PolymerElement } from "@polymer/polymer/polymer-element.js";
  * @customElement
  * @extends PolymerElement
  * @appliesMixin D2L.PolymerBehaviors.D2LActivityExemptions.LocalizeBehavior
- * @appliesMixin D2L.Polymer.Mixins.D2LActivityExemptions.LoadMoreExemptionsBehavior
  */
 class D2LActivityExemptions extends mixinBehaviors(
 	[
