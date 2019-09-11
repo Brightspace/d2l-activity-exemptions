@@ -56,6 +56,12 @@
     "update:all": "npm update"
   },
   "config": {
+    "frauAppConfigBuilder": {
+      "appFile": "d2l-activity-exemptions.js",
+      "dist": "./dist",
+      "envVar": "TRAVIS",
+      "loader": "iframe"
+    },
     "frauPublisher": {
       "files": "./build/**",
       "moduleType": "app",
