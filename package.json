@@ -4,6 +4,7 @@
     "type": "git",
     "url": "git+https://github.com/Brightspace/activity-exemptions.git"
   },
+  "appId": "urn:d2l:fra:class:activity-exemptions",
   "name": "activity-exemptions",
   "version": "0.0.4",
   "author": "D2L Corporation",
