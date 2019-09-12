@@ -60,7 +60,7 @@
       "moduleType": "app",
       "targetDirectory": "activity-exemptions",
       "creds": {
-        "key": "AKIAJSUZXLSOWGASCTAQ",
+        "key": "AKIA3HLX2CRXYZQKAYU2",
         "secretVar": "CDN_SECRET"
       },
       "devTagVar": "TRAVIS_COMMIT",
