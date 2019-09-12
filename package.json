@@ -50,13 +50,14 @@
     "lint": "npm run lint:js",
     "lint:js": "eslint . --ext .js,.html test/**/*.js test/**/*.html demo/**/*.js demo/**/*.html",
     "publish:cdn": "frau-publisher",
-    "start": "polymer serve",
+    "serve": "polymer analyze > analysis.json && polymer serve",
+    "start": "npm run serve",
     "test": "polymer test",
     "update:all": "npm update"
   },
   "config": {
     "frauPublisher": {
-      "files": "./build/**",
+      "files": "./build/default/**",
       "moduleType": "app",
       "targetDirectory": "activity-exemptions",
       "creds": {

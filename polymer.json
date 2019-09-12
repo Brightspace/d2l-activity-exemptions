@@ -18,6 +18,13 @@
   }],
   "lint": {
       "rules": ["polymer-3"],
-      "ignoreWarnings": ["non-literal-import", "not-loadable", "set-unknown-attribute", "databind-with-unknown-property","databinding-calls-must-be-functions", "could-not-resolve-reference"]
+      "ignoreWarnings": [
+        "non-literal-import", 
+        "not-loadable", 
+        "set-unknown-attribute", 
+        "databind-with-unknown-property",
+        "databinding-calls-must-be-functions", 
+        "could-not-resolve-reference"
+      ]
   }
 }
