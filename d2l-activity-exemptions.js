@@ -269,7 +269,7 @@ class D2LActivityExemptions extends mixinBehaviors(
 				element.querySelector('.checkbox-user[checked]') &&
 			element.data['IsExempt'] !== isExempt
 		);
-		var token = D2L.LP.Web.Authentication.Xsrf.GetXsrfToken();
+		var token ='0'; //D2L.LP.Web.Authentication.Xsrf.GetXsrfToken();
 		const options = {
 			headers: new Headers({
 				'Content-Type': 'application/json',
@@ -294,6 +294,12 @@ class D2LActivityExemptions extends mixinBehaviors(
 
 		Promise.all(allPromises).then(() => {
 			this.showSaveToast(isExempt, allPromises.length);
+			this.$.userListRows.render();
+		})
+		.catch(() => {
+			this.$.toast.hide();
+			this.$.toast.text = this.localize('toastCouldNotLoad');
+			this.$.toast.show();
 			this.$.userListRows.render();
 		});
 	}
