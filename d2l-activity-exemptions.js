@@ -255,10 +255,10 @@ class D2LActivityExemptions extends mixinBehaviors(
 	}
 
 	showSaveToast(isExempt, numChanged) {
-		var actionText = isExempt ? 'lblExemptSuccess' : 'lblUnexemptSuccess';
+		var actionText = isExempt ? 'toastExempt' : 'toastUnexempt';
 
 		this.$.toast.hide();
-		this.$.toast.text = this.localize(actionText, 'itemCount', numChanged);
+		this.$.toast.text = this.localize(actionText, 'count', numChanged);
 		this.$.toast.show();
 	}
 
