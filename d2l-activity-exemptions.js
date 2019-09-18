@@ -269,7 +269,7 @@ class D2LActivityExemptions extends mixinBehaviors(
 				element.querySelector('.checkbox-user[checked]') &&
 			element.data['IsExempt'] !== isExempt
 		);
-		var token ='0'; //D2L.LP.Web.Authentication.Xsrf.GetXsrfToken();
+		var token = D2L.LP.Web.Authentication.Xsrf.GetXsrfToken();
 		const options = {
 			headers: new Headers({
 				'Content-Type': 'application/json',
