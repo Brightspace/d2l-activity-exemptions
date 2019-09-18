@@ -296,12 +296,12 @@ class D2LActivityExemptions extends mixinBehaviors(
 			this.showSaveToast(isExempt, allPromises.length);
 			this.$.userListRows.render();
 		})
-		.catch(() => {
-			this.$.toast.hide();
-			this.$.toast.text = this.localize('toastCouldNotLoad');
-			this.$.toast.show();
-			this.$.userListRows.render();
-		});
+			.catch(() => {
+				this.$.toast.hide();
+				this.$.toast.text = this.localize('toastCouldNotLoad');
+				this.$.toast.show();
+				this.$.userListRows.render();
+			});
 	}
 
 	unexemptSelected() {
