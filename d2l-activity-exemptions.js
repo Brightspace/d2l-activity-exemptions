@@ -262,6 +262,15 @@ class D2LActivityExemptions extends mixinBehaviors(
 		this.$.toast.open = true;
 	}
 
+	_clearCheckboxes() {
+		this.root
+			.querySelectorAll('.checkbox-user[checked]')
+			.forEach(element => {
+			    element.checked = false;
+			});
+	}
+	 
+
 	_toggleExemption(isExempt) {
 		var userList = Array.from(this.$.classlist.querySelectorAll('.row-user'));
 		var filteredSelection = userList.filter(
