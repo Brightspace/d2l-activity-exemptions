@@ -228,6 +228,7 @@ class D2LActivityExemptions extends mixinBehaviors(
 				this.set('classlistItems', []);
 				this.__loadPagedData(d);
 				this.__mapUserData();
+				this._clearCheckboxes();
 			});
 	}
 
