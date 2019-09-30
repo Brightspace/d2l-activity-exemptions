@@ -228,7 +228,6 @@ class D2LActivityExemptions extends mixinBehaviors(
 				this.set('classlistItems', []);
 				this.__loadPagedData(d);
 				this.__mapUserData();
-				this._clearCheckboxes();
 			});
 	}
 
@@ -267,9 +266,10 @@ class D2LActivityExemptions extends mixinBehaviors(
 		this.root
 			.querySelectorAll('.checkbox-user[checked]')
 			.forEach(element => {
-				element.checked = false;
+			    element.checked = false;
 			});
 	}
+	 
 
 	_toggleExemption(isExempt) {
 		var userList = Array.from(this.$.classlist.querySelectorAll('.row-user'));
