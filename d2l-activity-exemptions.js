@@ -207,16 +207,9 @@ class D2LActivityExemptions extends mixinBehaviors(
 
 	doSearch(e) {
 		this.set('searchTerm', e.detail.value);
-		// const options = {
-		// 	headers: new Headers({
-		// 		'Access-Control-Allow-Origin': '*'
-		// 	}),
-		// 	method: 'GET',
-		// 	mode: 'cors'
-		// };
 		const options = {
 			headers: new Headers({
-				'Authorization': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6IjUzN2IyYzhiLTk5NDQtNDdhZi05MWQ2LTU5ZmNkYTQxNTFiMyJ9.eyJzdWIiOiIxNjkiLCJ0ZW5hbnRpZCI6IjBjZGY0NDQ4LTczZmItNGIxMy1hNWI0LTE4Nzc2OTFmOWI2NiIsInNjb3BlIjoiKjoqOioiLCJqdGkiOiJjNjI3MGZlMy1hZjIyLTRhMzAtYmUwNy1kMjZjZWZlNDIwZmMiLCJpc3MiOiJodHRwczovL2FwaS5icmlnaHRzcGFjZS5jb20vYXV0aCIsImF1ZCI6Imh0dHBzOi8vYXBpLmJyaWdodHNwYWNlLmNvbS9hdXRoL3Rva2VuIiwiZXhwIjoxNTcwNjM5NTk3LCJuYmYiOjE1NzA2MzU5OTd9.fP-kOxl-EmexkEtXk-vFJt0_whLx74_a7vTJ9RHFItcqUmYHoQxP83olqCUHD-vpchoNsIgaBwVL0l4z5x2CggR68CvdbDf76xIEq23MOf9ddOGHdyH21PGrDSt-Qt4N4SJv29T3yKWJvmKBmJSlCgohk9u-kZ_RAIrFnutiLEB4zYAgvFT3fq-OhfSfWVQ9g6rrz53qt0vv03whZtO8SM7XJFJCC1VHyjh7CtHeqVG5cdnKYUVXoUcCZPLAMt2plWXQoLyHfHyzq_EFM5OqOJ-NdQX48bNLWtQItSBD_BIWbiaXBQJG7xRwXNWehln1DOtU77Qp2JJlFDDG2HnpQQ'
+				'Access-Control-Allow-Origin': '*'
 			}),
 			method: 'GET',
 			mode: 'cors'
@@ -284,17 +277,10 @@ class D2LActivityExemptions extends mixinBehaviors(
 			element.data['IsExempt'] !== isExempt
 		);
 		var token = '';//D2L.LP.Web.Authentication.Xsrf.GetXsrfToken();
-		// const options = {
-		// 	headers: new Headers({
-		// 		'Content-Type': 'application/json',
-		// 		'X-Csrf-Token': token
-		// 	}),
-		// 	method: isExempt ? 'POST' : 'DELETE',
-		// 	mode: 'cors'
-		// };
 		const options = {
 			headers: new Headers({
-				'Authorization': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6IjUzN2IyYzhiLTk5NDQtNDdhZi05MWQ2LTU5ZmNkYTQxNTFiMyJ9.eyJzdWIiOiIxNjkiLCJ0ZW5hbnRpZCI6IjBjZGY0NDQ4LTczZmItNGIxMy1hNWI0LTE4Nzc2OTFmOWI2NiIsInNjb3BlIjoiKjoqOioiLCJqdGkiOiJjNjI3MGZlMy1hZjIyLTRhMzAtYmUwNy1kMjZjZWZlNDIwZmMiLCJpc3MiOiJodHRwczovL2FwaS5icmlnaHRzcGFjZS5jb20vYXV0aCIsImF1ZCI6Imh0dHBzOi8vYXBpLmJyaWdodHNwYWNlLmNvbS9hdXRoL3Rva2VuIiwiZXhwIjoxNTcwNjM5NTk3LCJuYmYiOjE1NzA2MzU5OTd9.fP-kOxl-EmexkEtXk-vFJt0_whLx74_a7vTJ9RHFItcqUmYHoQxP83olqCUHD-vpchoNsIgaBwVL0l4z5x2CggR68CvdbDf76xIEq23MOf9ddOGHdyH21PGrDSt-Qt4N4SJv29T3yKWJvmKBmJSlCgohk9u-kZ_RAIrFnutiLEB4zYAgvFT3fq-OhfSfWVQ9g6rrz53qt0vv03whZtO8SM7XJFJCC1VHyjh7CtHeqVG5cdnKYUVXoUcCZPLAMt2plWXQoLyHfHyzq_EFM5OqOJ-NdQX48bNLWtQItSBD_BIWbiaXBQJG7xRwXNWehln1DOtU77Qp2JJlFDDG2HnpQQ'
+				'Content-Type': 'application/json',
+				'X-Csrf-Token': token
 			}),
 			method: isExempt ? 'POST' : 'DELETE',
 			mode: 'cors'
