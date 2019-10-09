@@ -260,7 +260,7 @@ class D2LActivityExemptions extends mixinBehaviors(
 
 	_clearCheckboxes() {
 		this.root
-			.querySelector("#select-all")
+			.querySelector('#select-all')
 			.checked = false;
 		this.root
 			.querySelectorAll('.checkbox-user[checked]')
