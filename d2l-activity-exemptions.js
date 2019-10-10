@@ -112,14 +112,14 @@ class D2LActivityExemptions extends mixinBehaviors(
 			<d2l-tr role="row">
 			  <d2l-th>
 				<d2l-input-checkbox
-				  aria-label$="[[localize('selectUnselectAll')]]"
+				  aria-label$="[[localize('ariaSelectUnselectAll')]]"
 				  on-change="selectAll"
 				>
 				</d2l-input-checkbox>
 			  </d2l-th>
 
 			  <d2l-th scope="col" role="columnheader" aria-sort="none">
-				[[localize('lblFirstName')]] [[localize('lblLastName')]]
+				[[localize('lblDisplayName')]] 
 			  </d2l-th>
 
 			  <d2l-th scope="col" role="columnheader" aria-sort="none">
@@ -138,13 +138,14 @@ class D2LActivityExemptions extends mixinBehaviors(
 				<d2l-td>
 				  <d2l-input-checkbox
 					class="checkbox-user"
-					aria-label$="[[localize('ariaSelectUser', 'lastName', item.LastName, 'firstName', item.FirstName)]]"
+					aria-label$="[[getCheckboxAriaLabel(item.IsExempt, item.DisplayName)]]"
+					on-click="toggleSelectedRow"
 				  >
 				  </d2l-input-checkbox>
 				</d2l-td>
 
 				<d2l-th scope="row" role="rowheader" class="userfullname">
-				  [[item.FirstName]] [[item.LastName]]
+				  [[item.DisplayName]] 
 				</d2l-th>
 
 				<d2l-th scope="row" role="rowheader">
@@ -247,6 +248,12 @@ class D2LActivityExemptions extends mixinBehaviors(
 			.forEach(element => {
 				element.checked = e.target.checked;
 			});
+	}
+
+	getCheckboxAriaLabel(isExempt, displayName) {
+		var labelText = isExempt ? 'ariaSelectExemptUser' : 'ariaSelectNotExemptUser';
+		console.log(this.localize(labelText, 'fullName', displayName));
+		return this.localize(labelText, 'fullName', displayName);
 	}
 
 	showSaveToast(isExempt, numChanged) {
