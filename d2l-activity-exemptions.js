@@ -169,7 +169,7 @@ class D2LActivityExemptions extends mixinBehaviors(
 		  <d2l-button
 			class="toggle-exemption-buttons bottom-buttons"
 			role="button"
-			aria-label$="[[localize('ariabtnLoadMore')]]"
+			aria-label$="[[localize('ariaLoadMore')]]"
 			on-click="loadMore"
 		  >
 			[[localize('btnLoadMore')]]
