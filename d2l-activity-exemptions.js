@@ -139,7 +139,6 @@ class D2LActivityExemptions extends mixinBehaviors(
 				  <d2l-input-checkbox
 					class="checkbox-user"
 					aria-label$="[[getCheckboxAriaLabel(item.IsExempt, item.DisplayName)]]"
-					on-click="toggleSelectedRow"
 				  >
 				  </d2l-input-checkbox>
 				</d2l-td>
@@ -252,7 +251,7 @@ class D2LActivityExemptions extends mixinBehaviors(
 
 	getCheckboxAriaLabel(isExempt, displayName) {
 		var labelText = isExempt ? 'ariaSelectExemptUser' : 'ariaSelectNotExemptUser';
-		console.log(this.localize(labelText, 'fullName', displayName));
+
 		return this.localize(labelText, 'fullName', displayName);
 	}
 
