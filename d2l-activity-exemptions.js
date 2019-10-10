@@ -113,6 +113,7 @@ class D2LActivityExemptions extends mixinBehaviors(
 			  <d2l-th>
 				<d2l-input-checkbox
 				  aria-label$="[[localize('ariaSelectUnselectAll')]]"
+				  id="select-all"
 				  on-change="selectAll"
 				>
 				</d2l-input-checkbox>
@@ -265,6 +266,9 @@ class D2LActivityExemptions extends mixinBehaviors(
 	}
 
 	_clearCheckboxes() {
+		this.root
+			.querySelector('#select-all')
+			.checked = false;
 		this.root
 			.querySelectorAll('.checkbox-user[checked]')
 			.forEach(element => {
