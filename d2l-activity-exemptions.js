@@ -134,11 +134,12 @@ class D2LActivityExemptions extends mixinBehaviors(
 		  </d2l-thead>
 
 		  <d2l-tbody>
-			<template id="userListRows" is="dom-repeat" items="[[userData]]" observe="IsExempt">
-			  <d2l-tr class="row-user" role="row" data="[[item]]">
+			<template id="userListRows" is="dom-repeat" items="[[userData]]" observe="IsExempt isSelected">
+			  <d2l-tr class="row-user" role="row" data="[[item]]" selected=[[item.isSelected]]>
 				<d2l-td>
 				  <d2l-input-checkbox
 					class="checkbox-user"
+					on-click="_toggleSelectedStatus"
 					aria-label$="[[localize('ariaSelectUser', 'lastName', item.LastName, 'firstName', item.FirstName)]]"
 				  >
 				  </d2l-input-checkbox>
@@ -241,6 +242,9 @@ class D2LActivityExemptions extends mixinBehaviors(
 			count.toString()
 		);
 	}
+	_toggleSelectedStatus(event) {
+		event.model.set('item.isSelected', !event.model.get('item.isSelected'));
+	}
 
 	selectAll(e) {
 		this.root
@@ -248,6 +252,7 @@ class D2LActivityExemptions extends mixinBehaviors(
 			.forEach(element => {
 				element.checked = e.target.checked;
 			});
+		this.userData.forEach((user, index) => this.set(`userData.${index}.isSelected`, e.target.checked));
 	}
 
 	showSaveToast(isExempt, numChanged) {
@@ -267,6 +272,7 @@ class D2LActivityExemptions extends mixinBehaviors(
 			.forEach(element => {
 				element.checked = false;
 			});
+		this.userData.forEach((user, index) => this.set(`userData.${index}.isSelected`, false));
 	}
 
 	_toggleExemption(isExempt) {
