@@ -135,7 +135,7 @@ class D2LActivityExemptions extends mixinBehaviors(
 
 		  <d2l-tbody>
 			<template id="userListRows" is="dom-repeat" items="[[userData]]" observe="IsExempt isSelected">
-			  <d2l-tr class="row-user" role="row" data="[[item]]" selected=[[item.isSelected]]>
+			  <d2l-tr class="row-user" role="row" data="[[item]]" selected=[[_getSelected(item.isSelected)]]>
 				<d2l-td>
 				  <d2l-input-checkbox
 					class="checkbox-user"
@@ -204,6 +204,9 @@ class D2LActivityExemptions extends mixinBehaviors(
 	ready() {
 		super.ready();
 		this.$.search.addEventListener('d2l-input-search-searched', this.doSearch.bind(this));
+	}
+	_getSelected(isSelected) {
+		return !!isSelected;
 	}
 
 	doSearch(e) {

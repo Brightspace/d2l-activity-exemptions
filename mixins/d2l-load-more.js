@@ -92,9 +92,8 @@ const LoadMoreExemptionsBehaviorImpl = {
 				user.IsExempt = this.exemptions.some(e => {
 					return e.UserId === user.Identifier;
 				});
-				if (!user.isSelected) {
-					user.isSelected = false;
-				}
+				user.isSelected = !!user.isSelected;
+				console.log(user.isSelected);
 				return user;
 			}
 		));
