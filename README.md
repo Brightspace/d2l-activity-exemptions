@@ -2,7 +2,7 @@
 
 # \<d2l-activity-exemptions\>
 
-Activity exemptions component
+This is the activity exemptions component for use in bsi.
 
 ## Install the Polymer-CLI
 
