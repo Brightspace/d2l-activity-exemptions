@@ -1,4 +1,4 @@
-[![Build status][ci-image]][ci-url]
+[![Release Badge](https://github.com/Brightspace/d2l-activity-exemptions/workflows/release/badge.svg)](https://github.com/Brightspace/d2l-activity-exemptions/actions?query=workflow%3Arelease)
 
 # \<d2l-activity-exemptions\>
 
@@ -44,6 +44,3 @@ Your application is already set up to be tested via [web-component-tester](https
 All version changes should obey [semantic versioning](https://semver.org/) rules.
 
 Include either `[increment major]`, `[increment minor]` or `[increment patch]` in your merge commit message to automatically increment the `package.json` version and create a tag during the next build.
-
-[ci-url]: https://travis-ci.com/Brightspace/d2l-activity-exemptions	
-[ci-image]: https://travis-ci.com/Brightspace/d2l-activity-exemptions.svg?branch=master
