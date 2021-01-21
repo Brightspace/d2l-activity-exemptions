@@ -58,8 +58,8 @@
       "files": "./build/default/**",
       "moduleType": "app",
       "targetDirectory": "activity-exemptions",
-      "devTagVar": "TRAVIS_COMMIT",
-      "versionVar": "TRAVIS_TAG",
+      "devTagVar": "GIT_COMMIT",
+      "versionVar": "VERSION",
       "frauLocalAppResolver": {
         "appClass": "urn:d2l:fra:class:activity-exemptions"
       }
