@@ -51,13 +51,13 @@ const LoadMoreExemptionsBehaviorImpl = {
 				.then(r => r.json())
 				.then(b => this.exemptions = b)
 		])
-		.then(() => {
-			this.__mapUserData();
-		})
-		.catch(() => {
-			this.$.toast.subtext = this.localize('toastCouldNotLoad');
-			this.$.toast.open = true;
-		});
+			.then(() => {
+				this.__mapUserData();
+			})
+			.catch(() => {
+				this.$.toast.subtext = this.localize('toastCouldNotLoad');
+				this.$.toast.open = true;
+			});
 	},
 
 	loadMore() {
