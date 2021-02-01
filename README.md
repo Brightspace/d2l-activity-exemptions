@@ -1,3 +1,4 @@
+[![CI Badge](https://github.com/Brightspace/d2l-activity-exemptions/workflows/CI/badge.svg)](https://github.com/Brightspace/d2l-activity-exemptions/actions?query=workflow%3ACI)
 [![Release Badge](https://github.com/Brightspace/d2l-activity-exemptions/workflows/release/badge.svg)](https://github.com/Brightspace/d2l-activity-exemptions/actions?query=workflow%3Arelease)
 
 # \<d2l-activity-exemptions\>
