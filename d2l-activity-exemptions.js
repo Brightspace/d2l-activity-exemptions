@@ -203,7 +203,6 @@ class D2LActivityExemptions extends mixinBehaviors(
 
 	constructor() {
 		super();
-		this._openListener = this._onOpen.bind(this);
 	}
 
 	connectedCallback() {
@@ -225,7 +224,8 @@ class D2LActivityExemptions extends mixinBehaviors(
 		return !!isSelected;
 	}
 
-	_onOpen() {
+	load() {
+		this.loadInitialList();
 		this.$.exemptBtn.focus();
 	}
 

@@ -41,7 +41,8 @@ const LoadMoreExemptionsBehaviorImpl = {
 			type: String
 		}
 	},
-	ready() {
+
+	loadInitialList() {
 		Promise.all([
 			fetch(this.classlistUrl, options)
 				.then(r => r.json())
