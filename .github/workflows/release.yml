@@ -24,7 +24,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.D2L_GITHUB_TOKEN }}
       - name: Publish to CDN
         if: steps.incremental-release.outputs.VERSION != ''
-        run: run publish:cdn
+        run: npm run publish:cdn
         env:
           VERSION: ${{ steps.incremental-release.outputs.VERSION }}
           GIT_COMMIT: ${{ github.sha }}
