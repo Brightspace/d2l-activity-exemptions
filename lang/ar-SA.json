@@ -24,7 +24,7 @@
    "lblNoResultsFound" : "لم يتم العثور على نتائج لـ <strong>{queryTerm}</strong>.",
    "lblNoUsers" : "لم يتم العثور على مستخدمين.",
    "lblNotExempt" : "غير معفى",
-   "lblOrgDefinedId" : "معرِّف المؤسسة المحدد",
+   "lblOrgDefinedId" : "معرِّف المؤسسة المحدد",
    "lblSearchPlaceholder" : "البحث عن...",
    "lblUser" : "المستخدم",
    "toastCouldNotLoad" : "يتعذّر تحميل بيانات إعفاء النشاط",
