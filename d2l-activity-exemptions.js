@@ -1,5 +1,4 @@
 import '@polymer/polymer/polymer-legacy.js';
-import '@brightspace-ui/core/components/dialog/dialog-fullscreen.js';
 import 'd2l-table/d2l-table.js';
 import 'd2l-button/d2l-button.js';
 import 'd2l-offscreen/d2l-offscreen.js';
