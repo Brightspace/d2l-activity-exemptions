@@ -17,19 +17,17 @@
 			<style is="custom-style" include="demo-pages-shared-styles"></style>
 		</custom-style>
 
-		</script>
 	</head>
-
 	<body class="d2l-typography">
-		<div>
-			<h3>Basic activity-exemptions demo</h3>
-			<demo-snippet>
+		<h3>Basic activity-exemptions demo</h3>
+		<demo-snippet>
 			<template>
 				<d2l-activity-exemptions classlist-url="../testData/classlist.json" exemptions-url="../testData/exemptions.json">
 				</d2l-activity-exemptions>
+				<script>
+					setTimeout(() => document.querySelector('d2l-activity-exemptions').load());
+				</script>
 			</template>
-			</demo-snippet>
-		</div>
-	</script>
-  </body>
+		</demo-snippet>
+	</body>
 </html>

@@ -1,12 +1,11 @@
+import '@brightspace-ui/core/components/alert/alert-toast.js';
+import '@brightspace-ui/core/components/button/button.js';
+import '@brightspace-ui/core/components/offscreen/offscreen.js';
+import '@brightspace-ui/core/components/inputs/input-checkbox.js';
+import '@brightspace-ui/core/components/inputs/input-checkbox-spacer.js';
+import '@brightspace-ui/core/components/inputs/input-search.js';
 import '@polymer/polymer/polymer-legacy.js';
-import 'd2l-table/d2l-table.js';
-import 'd2l-button/d2l-button.js';
-import 'd2l-offscreen/d2l-offscreen.js';
-import 'd2l-offscreen/d2l-offscreen.js';
-import 'd2l-inputs/d2l-input-checkbox.js';
-import 'd2l-inputs/d2l-input-checkbox-spacer.js';
-import 'd2l-inputs/d2l-input-search.js';
-import 'd2l-alert/d2l-alert-toast.js';
+import 'd2l-table/d2l-table-wrapper.js';
 import './localize-behavior.js';
 import './mixins/d2l-load-more.js';
 import { html } from '@polymer/polymer/lib/utils/html-tag.js';
@@ -41,7 +40,7 @@ class D2LActivityExemptions extends mixinBehaviors(
 	}
 	static get template() {
 		return html`
-	  <style>
+	  <style include="d2l-table-style">
 		:host {
 		  display: block;
 		  padding-bottom: 40px;
@@ -71,7 +70,6 @@ class D2LActivityExemptions extends mixinBehaviors(
 		  padding-top: 10px;
 		}
 	  </style>
-	  <style include="d2l-table-style"></style>
 
 	  <div role="main">
 		<d2l-button
@@ -100,70 +98,45 @@ class D2LActivityExemptions extends mixinBehaviors(
 		  <p>[[exemptionCount]]</p>
 		</div>
 
-		<d2l-table
-		  id="classlist"
-		  summary="[[localize('ariaTableSummary')]]"
-		  aria-label$="[[localize('ariaTableSummary')]]"
-		>
-		  <d2l-thead>
-			<d2l-tr role="row">
-			  <d2l-th>
-				<d2l-input-checkbox
-				  aria-label$="[[localize('ariaSelectUnselectAll')]]"
-				  id="select-all"
-				  aria-label$="[[localize('ariaSelectUnselectAll')]]"
-				  on-change="selectAll"
-				>
-				</d2l-input-checkbox>
-			  </d2l-th>
-
-			  <d2l-th scope="col" role="columnheader" aria-sort="none">
-				[[localize('lblDisplayName')]] 
-			  </d2l-th>
-
-			  <d2l-th scope="col" role="columnheader" aria-sort="none">
-				[[localize('lblOrgDefinedId')]]
-			  </d2l-th>
-
-			  <d2l-th scope="col" role="columnheader" aria-sort="none">
-				[[localize('lblExemptStatus')]]
-			  </d2l-th>
-			</d2l-tr>
-		  </d2l-thead>
-
-		  <d2l-tbody>
-			<template id="userListRows" is="dom-repeat" items="[[userData]]" observe="IsExempt isSelected">
-			  <d2l-tr class="row-user" role="row" data="[[item]]" selected=[[_getSelected(item.isSelected)]]>
-				<d2l-td>
-				  <d2l-input-checkbox
-					class="checkbox-user"
-					checked=[[item.isSelected]]
-					on-click="_toggleSelectedStatus"
-					aria-label$="[[getCheckboxAriaLabel(item.IsExempt, item.DisplayName)]]"
-				  >
-				  </d2l-input-checkbox>
-				</d2l-td>
-
-				<d2l-th scope="row" role="rowheader" class="userfullname">
-				  [[item.DisplayName]] 
-				</d2l-th>
-
-				<d2l-th scope="row" role="rowheader">
-				  [[item.OrgDefinedId]]
-				</d2l-th>
-
-				<d2l-th scope="row" role="rowheader" class="exemptStatus">
-				  <template is="dom-if" if="[[item.IsExempt]]">
-					[[localize('lblExempt')]]
-				  </template>
-				  <template is="dom-if" if="[[!item.IsExempt]]">
-					<d2l-offscreen>[[localize('lblNotExempt')]]</d2l-offscreen>
-				  </template>
-				</d2l-th>
-			  </d2l-tr>
-			</template>
-		  </d2l-tbody>
-		</d2l-table>
+		<d2l-table-wrapper>
+			<table class="d2l-table" id="classlist" aria-label$="[[localize('ariaTableSummary')]]">
+				<thead>
+					<tr>
+						<th>
+							<d2l-input-checkbox
+								aria-label$="[[localize('ariaSelectUnselectAll')]]"
+								id="select-all"
+								aria-label$="[[localize('ariaSelectUnselectAll')]]"
+								on-change="selectAll">
+							</d2l-input-checkbox>
+						</th>
+						<th>[[localize('lblDisplayName')]]</th>
+						<th>[[localize('lblOrgDefinedId')]]</th>
+						<th>[[localize('lblExemptStatus')]]</th>
+					</tr>
+				</thead>
+				<tbody>
+					<template id="userListRows" is="dom-repeat" items="[[userData]]" observe="IsExempt isSelected">
+						<tr class="row-user" data="[[item]]" selected$="[[_getSelected(item.isSelected)]]">
+							<td>
+								<d2l-input-checkbox
+									class="checkbox-user"
+									checked=[[item.isSelected]]
+									on-click="_toggleSelectedStatus"
+									aria-label$="[[getCheckboxAriaLabel(item.IsExempt, item.DisplayName)]]">
+								</d2l-input-checkbox>
+							</td>
+							<th class="userfullname">[[item.DisplayName]]</th>
+							<th>[[item.OrgDefinedId]]</th>
+							<th class="exemptStatus">
+								<template is="dom-if" if="[[item.IsExempt]]">[[localize('lblExempt')]]</template>
+								<template is="dom-if" if="[[!item.IsExempt]]"><d2l-offscreen>[[localize('lblNotExempt')]]</d2l-offscreen></template>
+							</th>
+						</tr>
+					</template>
+				</tbody>
+			</table>
+		</d2l-table-wrapper>
 
 		<template is="dom-if" if="[[hasMoreItems]]">
 		  <d2l-button
