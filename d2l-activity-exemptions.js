@@ -178,20 +178,6 @@ class D2LActivityExemptions extends mixinBehaviors(
 	`;
 	}
 
-	constructor() {
-		super();
-	}
-
-	connectedCallback() {
-		super.connectedCallback();
-		window.addEventListener('d2l-simple-overlay-opening', this._openListener);
-	}
-
-	disconnectedCallback() {
-		super.disconnectedCallback();
-		window.removeEventListener('d2l-simple-overlay-opening', this._openListener);
-	}
-
 	ready() {
 		super.ready();
 		this.$.search.addEventListener('d2l-input-search-searched', this.doSearch.bind(this));

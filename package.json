@@ -13,7 +13,6 @@
     "@brightspace-ui/core": "^1",
     "@polymer/polymer": "^3.0.0",
     "d2l-localize-behavior": "github:BrightspaceUI/localize-behavior#semver:^2",
-    "d2l-simple-overlay": "github:Brightspace/simple-overlay#semver:^3",
     "d2l-table": "github:BrightspaceUI/table#semver:^2"
   },
   "devDependencies": {
